@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User-Account</title>
+    <link rel="stylesheet" href="../index.css">
+    <meta http-equiv="Cache-Control" content="no-store" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <script>
+        // Check if the user is authenticated
+        if(!localStorage.getItem('authToken')) {
+            window.location.href = '../index.html'; // Redirect to login page
+        }
+    </script>
+    
+</head>
+<body>
+    <header class="details">
+        <div class="details-1">
+            <p class="text">Good Evening,  <span class="name text">HI</span></p>
+        </div>
+        <div class="current text logout">Logout</div>
+    </header>
+    <main class="transaction">
+       <div class="term-1">
+        
+       </div>
+       <div class="term-2">
+        <p class="text head">Transfer Amount</p>
+        <input type="text" class="text value-1" placeholder="Enter Account Holder">
+        <input type="number" class="text value-2" placeholder="Enter Amount">
+        <input type="submit" class="text button">
+       </div>
+       <div class="term-3">
+        <p class="text head">Request Amount</p>
+        <input type="number" class="text value-2" placeholder="Enter Amount">
+        <input type="submit" class="text button">
+       </div>
+       <div class="term-4">
+        <p class="text head">Close Account</p>
+        <input type="text" class="text value-1" placeholder="Enter PIN">
+        <input type="number" class="text value-2" placeholder="Confirm PIN">
+        <input type="submit" class="text button">
+       </div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+        let exit = document.getElementsByClassName('logout')[0];
+        if (exit) {
+            setTimeout(function(){
+                exit.addEventListener('click', function() {
+                localStorage.removeItem('authToken');
+                window.location.href = '../index.html'; // Adjust path as needed
+            });
+            }, 1000);
+            
+        }
+    });
+    </script>
+
+    <script src="../index.js"></script>
+    
+</body>
+</html>
